@@ -51,11 +51,7 @@ export const updateTodo = async (req, res) => {
     const intId = parseInt(id);
     if (isNaN(intId)) throw new Error("Invalid id, please use an integer.");
     const todos = await readTodos(TODOS_PATH);
-    console.log(todos);
     const todo = todos.find((t) => t.id === intId);
-    console.log(todo);
-    console.log(todo.title);
-    console.log(body.title);
     if (!todo) {
       res.status(404).json({ success: false, data: {} });
     } else {
